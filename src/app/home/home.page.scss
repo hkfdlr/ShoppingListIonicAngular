@@ -16,12 +16,42 @@
 #container p {
   font-size: 16px;
   line-height: 22px;
-
   color: #8c8c8c;
-
   margin: 0;
 }
 
 #container a {
   text-decoration: none;
+}
+
+.item-grid {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 4px;
+}
+
+.card-item {
+  width: 33%;
+  padding: 4px;
+}
+
+.search-button {
+  margin-top: auto;
+  margin-bottom: 0;
+  float: bottom;
+}
+
+.search-component {
+  display: inline-flex;
+}
+
+.search-component-small {
+  height: 9%;
+  width: 100%;
+}
+
+.search-component-large {
+  height: 80%;
+  width: 100%;
+  padding: 10px;
 }
