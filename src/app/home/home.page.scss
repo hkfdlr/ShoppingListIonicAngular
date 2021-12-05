@@ -42,16 +42,17 @@
 }
 
 .search-component {
-  display: inline-flex;
+  display: flex;
 }
 
 .search-component-small {
-  height: 9%;
   width: 100%;
+  padding: 10px;
+  flex: 0 0 10%;
 }
 
 .search-component-large {
-  height: 80%;
   width: 100%;
   padding: 10px;
+  flex: 0 0 80%;
 }

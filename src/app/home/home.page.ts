@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, QueryList, ViewChildren} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import {ItemdataService} from './services/itemdata.service';
 import {AnimationController, DomController, GestureController, ModalController} from '@ionic/angular';
 import {AddItemMenuComponent} from './components/add-item-menu/add-item-menu.component';
@@ -10,10 +10,10 @@ import {element} from 'protractor';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements AfterViewInit {
-  private searchbar: HTMLElement;
   private searchOpened: boolean = false;
   private dragAnimation: any;
   @ViewChildren(AddItemMenuComponent, {read: ElementRef}) modalContainer: QueryList<ElementRef>;
+  @ViewChild('addItemSearchbar') searchbar: ElementRef;
 
   constructor(
     private data: ItemdataService,
@@ -26,11 +26,9 @@ export class HomePage implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.initSearchbarSize();
     const containerArray = this.modalContainer.toArray();
     const containerElement = containerArray[0].nativeElement;
 
-    const windowWidth = window.innerWidth;
     this.dragAnimation = this.animationCtrl.create()
       .addElement(containerElement)
       .duration(150)
@@ -45,17 +43,18 @@ export class HomePage implements AfterViewInit {
         const currentY = ev.deltaY;
         console.log('!!! moving')
         this.domCtrl.write(() => {
-          containerElement.style.transform = 'translateY(${currentY}px)'
+          containerElement.style.transform = `translateY(${currentY}px)`
         })
       },
       onEnd: ev => {
-        containerElement.style.transition = '';
-
-
+        console.log(ev)
       }
     }, true);
 
     swipeGesture.enable(true);
+    console.log()
+    this.initSearchbarSize();
+
   }
 
   public getItems() {
@@ -75,13 +74,13 @@ export class HomePage implements AfterViewInit {
   }
 
   initSearchbarSize(): void {
-    this.searchbar = document.getElementById("addItemSearchbar");
-    console.log('!!!', this.searchbar)
+    console.log('!!!', this.searchbar )
   }
 
   doResize(event): void {
-    this.dragAnimation.play();
-    console.log(event)
-    //this.searchOpened = event;
+    if (this.dragAnimation) {
+      this.dragAnimation.play();
+    }
+    // this.searchOpened = event;
   }
 }
