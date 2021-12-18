@@ -7,7 +7,6 @@ import { HomePage } from './home.page';
 import { HomePageRoutingModule } from './home-routing.module';
 import {ItemComponent} from './components/item/item.component';
 import {AddItemMenuComponent} from './components/add-item-menu/add-item-menu.component';
-import {ContentDrawerComponent} from './components/content-drawer/content-drawer.component';
 
 
 @NgModule({
@@ -21,7 +20,6 @@ import {ContentDrawerComponent} from './components/content-drawer/content-drawer
     HomePage,
     ItemComponent,
     AddItemMenuComponent,
-    ContentDrawerComponent
   ]
 })
 export class HomePageModule {}

@@ -4,25 +4,24 @@
       Shopping List
     </ion-title>
   </ion-toolbar>
+  <ion-searchbar (ionChange)="handleInput($event)"></ion-searchbar>
 </ion-header>
 
-<ion-content id="main" [fullscreen]="true">
+<ion-content>
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Shopping List</ion-title>
     </ion-toolbar>
   </ion-header>
-  <div class="item-grid">
-    <app-item class="card-item" *ngFor="let item of getItems()" [item]="item"></app-item>
-    <!--<ion-fab vertical="bottom" horizontal="center">
-      <ion-fab-button>
-        <ion-icon name="add" (click)="addItem()"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>-->
-  </div>
+  <ion-content [classList]="isMobile() ? 'main-mobile' : 'main-desktop'" [fullscreen]="true">
+    <div class="grid-align" *ngIf="!showSearchList">
+      <div class="spacer"></div>
+      <div [ngClass]="['item-grid', isMobile() ? 'grid-mobile' : 'grid-desktop']">
+        <app-item class="card-item" *ngFor="let item of getItems()" [item]="item"></app-item>
+      </div>
+      <div class="spacer"></div>
+    </div>
+    <app-add-item-menu *ngIf="showSearchList"></app-add-item-menu>
+  </ion-content>
 </ion-content>
-<app-add-item-menu
-  (resize)="doResize($event)"
-  [classList]="[searchOpened ? 'search-component-large' : 'search-component-small']"
-></app-add-item-menu>
 

@@ -30,29 +30,35 @@
   padding: 4px;
 }
 
+.grid-align {
+  display: flex;
+  justify-content: space-around;
+}
+
 .card-item {
   width: 33%;
   padding: 4px;
 }
 
-.search-button {
-  margin-top: auto;
-  margin-bottom: 0;
-  float: bottom;
-}
-
-.search-component {
+.main-desktop {
   display: flex;
+  justify-content: space-around;
 }
 
-.search-component-small {
-  width: 100%;
-  padding: 10px;
-  flex: 0 0 10%;
+.main-mobile {
+
 }
 
-.search-component-large {
+.grid-mobile {
   width: 100%;
-  padding: 10px;
-  flex: 0 0 80%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 4px;
+}
+
+.grid-desktop {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 4px;
 }

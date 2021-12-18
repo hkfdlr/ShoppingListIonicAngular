@@ -18,16 +18,6 @@ export class ItemdataService {
     {name: 'Test4', id: 3},
   ]
 
-  private itemsGrouped = []
-
-  private groupItems(items: Item[]) {
-
-  }
-
   public getItems() {
-    return this.groupItems(this.items);
-  }
-
-  constructor() {
   }
 }
