@@ -10,7 +10,8 @@ import {Platform} from '@ionic/angular';
 })
 export class HomePage implements AfterViewInit {
 
-  showSearchList = false;
+  private showSearchList = false;
+  private searchText: string;
 
   constructor(
     private data: ItemdataService,
@@ -27,10 +28,6 @@ export class HomePage implements AfterViewInit {
     return this.data.items;
   }
 
-  getItemById(id: number) {
-    return this.data.items[id];
-  }
-
   addItem() {
 
   }
@@ -42,9 +39,14 @@ export class HomePage implements AfterViewInit {
   handleInput(event) {
     if (event.detail.value.length > 0) {
       this.showSearchList = true;
-      console.log(event, this.showSearchList)
+      this.searchText = event.detail.value;
     } else {
       this.showSearchList = false;
+      this.searchText = '';
     }
+  }
+
+  removeItem(itemId: number) {
+    this.data.removeItem(itemId)
   }
 }

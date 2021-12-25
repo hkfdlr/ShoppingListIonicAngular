@@ -13,15 +13,29 @@
       <ion-title size="large">Shopping List</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content [classList]="isMobile() ? 'main-mobile' : 'main-desktop'" [fullscreen]="true">
+  <ion-content [classList]="isMobile() ? '' : 'main-desktop'" [fullscreen]="true">
     <div class="grid-align" *ngIf="!showSearchList">
-      <div class="spacer"></div>
+      <div></div>
       <div [ngClass]="['item-grid', isMobile() ? 'grid-mobile' : 'grid-desktop']">
-        <app-item class="card-item" *ngFor="let item of getItems()" [item]="item"></app-item>
+        <app-item
+          *ngFor="let item of getItems()"
+          [ngClass]="isMobile() ? 'item-mobile' : 'item-desktop'"
+          [item]="item"
+          (click)="removeItem(item.id)"
+        ></app-item>
       </div>
-      <div class="spacer"></div>
+      <div></div>
     </div>
-    <app-add-item-menu *ngIf="showSearchList"></app-add-item-menu>
+    <div class="grid-align">
+      <div></div>
+        <app-add-item-menu
+          [ngClass]="['item-grid', isMobile() ? 'grid-mobile' : 'grid-desktop']"
+          *ngIf="showSearchList"
+          [searchText]="searchText"
+          [isMobile]="isMobile()"
+          ></app-add-item-menu>
+      <div></div>
+    </div>
   </ion-content>
 </ion-content>
 

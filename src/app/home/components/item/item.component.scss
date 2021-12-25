@@ -1,7 +1,18 @@
 .card-item {
+  height: 30vw;
+  width: 30vw;
 }
 
 .inner-item {
-  padding-top: 25%;
-  padding-bottom: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+}
+
+.card-title {
+  display: flex;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  font-size: 14px;
 }

@@ -35,18 +35,19 @@
   justify-content: space-around;
 }
 
-.card-item {
+.item-mobile {
   width: 33%;
   padding: 4px;
+}
+
+.item-desktop {
+  width: 20%;
+  padding: 8px;
 }
 
 .main-desktop {
   display: flex;
   justify-content: space-around;
-}
-
-.main-mobile {
-
 }
 
 .grid-mobile {

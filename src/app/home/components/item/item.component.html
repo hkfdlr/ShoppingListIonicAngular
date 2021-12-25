@@ -1,7 +1,7 @@
-<div class="card-item">
-  <ion-card class="ion-no-margin">
-    <ion-card-header>
-      <ion-card-title class="inner-item">{{item.name}}</ion-card-title>
+<div>
+  <ion-card [ngClass]="['ion-no-margin', 'card-item']">
+    <ion-card-header [ngClass]="'inner-item'">
+      <ion-card-title class="card-title">{{item.name}}</ion-card-title>
     </ion-card-header>
   </ion-card>
 </div>
